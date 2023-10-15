@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Accordion</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Styling the accordion */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+        }
+
+        .accordion-input {
+            display: none;
+        }
+
+        .accordion-label {
+            background-color: #f4f4f4;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+
+        .accordion-label:hover {
+            background-color: #ddd;
+        }
+
+        .accordion-label::before {
+            content: "+";
+            float: right;
+            transition: transform 0.3s;
+        }
+
+        .accordion-input:checked + .accordion-label::before {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+        }
+
+        .accordion-input:checked + .accordion-label + .accordion-content {
+            max-height: 1000px; /* Set a sufficiently large max-height value */
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion">
+        <input type="checkbox" class="accordion-input" id="section1">
+        <label for="section1" class="accordion-label">Section 1</label>
+        <div class="accordion-content">
+            <p>This is the content for Section 1.</p>
+        </div>
+        
+        <input type="checkbox" class="accordion-input" id="section2">
+        <label for "section2" class="accordion-label">Section 2</label>
+        <div class="accordion-content">
+            <p>This is the content for Section 2.</p>
+        </div>
+        
+        <input type="checkbox" class="accordion-input" id="section3">
+        <label for="section3" class="accordion-label">Section 3</label>
+        <div class="accordion-content">
+            <p>This is the content for Section 3.</p>
+        </div>
+    </div>
+</body>
+</html>
